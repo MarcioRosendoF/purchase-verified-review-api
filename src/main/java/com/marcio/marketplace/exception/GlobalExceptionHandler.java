@@ -1,0 +1,54 @@
+package com.marcio.marketplace.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    private ResponseEntity<Map<String, Object>> buildError(HttpStatus status, String message) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("status", status.value());
+        body.put("error", status.getReasonPhrase());
+        body.put("message", message);
+        body.put("timestamp", OffsetDateTime.now(ZoneOffset.UTC).toString());
+        return ResponseEntity.status(status).body(body);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
+        return buildError(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Map<String, Object>> handleBusiness(BusinessException ex) {
+        return buildError(HttpStatus.FORBIDDEN, ex.getMessage());
+    }
+
+    @ExceptionHandler(org.springframework.dao.DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, Object>> handleConflict(Exception ex) {
+        return buildError(HttpStatus.CONFLICT, "Recurso já existe ou viola restrição de integridade");
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException ex) {
+        String message = ex.getBindingResult().getFieldErrors().stream()
+            .map(e -> e.getField() + ": " + e.getDefaultMessage())
+            .findFirst()
+            .orElse("Dados inválidos");
+        return buildError(HttpStatus.BAD_REQUEST, message);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Map<String, Object>> handleGeneral(Exception ex) {
+        return buildError(HttpStatus.INTERNAL_SERVER_ERROR, "Erro interno do servidor");
+    }
+}
