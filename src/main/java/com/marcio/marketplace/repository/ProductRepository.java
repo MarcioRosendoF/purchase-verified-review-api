@@ -30,5 +30,18 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     )
     Page<ProductSummary> findAllActiveWithStats(Pageable pageable);
 
+    @Query(
+        value = """
+            SELECT p AS product,
+                   COALESCE(AVG(r.rating), 0.0) AS averageRating,
+                   COUNT(r) AS reviewCount
+            FROM Product p
+            LEFT JOIN Review r ON r.product = p
+            WHERE p.id = :id AND p.deletedAt IS NULL
+            GROUP BY p.id
+            """
+    )
+    Optional<ProductSummary> findActiveByIdWithStats(@org.springframework.data.repository.query.Param("id") UUID id);
+
     Optional<Product> findByIdAndDeletedAtIsNull(UUID id);
 }
