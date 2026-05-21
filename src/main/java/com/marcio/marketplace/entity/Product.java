@@ -7,7 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -34,10 +34,10 @@ public class Product {
     @JoinColumn(name = "created_by_user_id", nullable = false)
     private User createdBy;
 
-    private OffsetDateTime deletedAt; // null = ativo, não-null = soft deleted
+    private Instant deletedAt; // null = ativo, não-null = soft deleted
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 
 }
