@@ -1,5 +1,6 @@
 package com.marcio.marketplace.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.marcio.marketplace.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class User implements UserDetails {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 

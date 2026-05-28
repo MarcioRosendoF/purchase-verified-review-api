@@ -46,6 +46,11 @@ public class GlobalExceptionHandler {
         return buildError(HttpStatus.BAD_REQUEST, message);
     }
 
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(Exception ex) {
+        return buildError(HttpStatus.FORBIDDEN, "Acesso negado");
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneral(Exception ex) {
         ex.printStackTrace();
