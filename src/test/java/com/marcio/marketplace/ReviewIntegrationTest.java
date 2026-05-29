@@ -20,10 +20,7 @@ import java.util.UUID;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application-test.properties")
-public class ReviewIntegrationTest {
+public class ReviewIntegrationTest extends BaseIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;

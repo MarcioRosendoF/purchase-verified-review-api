@@ -1,10 +1,8 @@
 package com.marcio.marketplace;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class MarketplaceApplicationTests {
+class MarketplaceApplicationTests extends BaseIntegrationTest {
 
 	@Test
 	void contextLoads() {

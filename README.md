@@ -26,6 +26,7 @@ A REST API that enforces a single core rule: users can only review products they
 * **Authentication:** JWT (JSON Web Tokens via JJWT)
 * **Build Tool:** Maven
 * **Infrastructure:** Docker & Docker Compose
+* **Database Testing:** Testcontainers (PostgreSQL Container)
 
 ### Getting Started
 
@@ -100,6 +101,7 @@ curl -X POST http://localhost:8080/reviews \
 * **`Instant` with UTC for Timestamps:** Using `Instant` standardizes all date and time representation to UTC. This approach removes local timezone conflicts between servers, databases, and clients. Formatting times to local timezones is delegated entirely to the client application.
 * **Isolated `PurchaseValidatorService`:** The validation logic checking if a buyer has purchased a product is separated into its own service class. This adheres to the Single Responsibility Principle (SRP), making the unit testing process straightforward and allowing the validation rule to be reused in other areas like loyalty programs or marketing campaigns.
 * **Flyway for Database Migrations:** Schema changes are versioned and managed through Flyway SQL migration files. This ensures that the database schema is updated incrementally and consistently across all deployment environments (development, testing, and production), replacing risky auto-generation strategies.
+* **Testcontainers for Ephemeral Testing:** Instead of pointing integration tests to a shared or local static database server, Testcontainers programmatically spins up a clean, isolated PostgreSQL Docker container before running the test suite. This guarantees that tests run reliably on any developer machine or continuous integration (CI) server without environment drift or port collisions.
 
 ---
 
@@ -125,6 +127,7 @@ Uma API REST que impõe uma única regra de negócio central: usuários só pode
 * **Autenticação:** JWT (JSON Web Tokens via JJWT)
 * **Ferramenta de Build:** Maven
 * **Infraestrutura:** Docker & Docker Compose
+* **Testes de Banco de Dados:** Testcontainers (PostgreSQL Container)
 
 ### Como Rodar
 
@@ -199,3 +202,4 @@ curl -X POST http://localhost:8080/reviews \
 * **`Instant` com UTC para Timestamps:** O uso de `Instant` padroniza a representação de todas as datas e horários em UTC. Isso elimina conflitos de fusos horários locais entre servidores, bancos de dados e clientes. A formatação de exibição é delegada à aplicação cliente.
 * **`PurchaseValidatorService` Isolado:** A lógica de validação que verifica se um comprador adquiriu o produto foi separada em uma classe de serviço exclusiva. Isso atende ao Princípio de Responsabilidade Única (SRP), simplificando testes unitários e permitindo o reuso dessa regra de validação em outras áreas do sistema futuramente.
 * **Flyway para Migrações de Banco de Dados:** Alterações de esquema são versionadas e gerenciadas por meio de arquivos SQL sequenciais no Flyway. Isso garante que a estrutura do banco evolua de forma previsível e seja replicada exatamente igual em todos os ambientes (desenvolvimento, testes e produção), substituindo estratégias de geração automática de DDL em produção.
+* **Testcontainers para Testes Efêmeros:** Em vez de apontar os testes de integração para um banco de dados estático local ou compartilhado, o Testcontainers provisiona programaticamente um container PostgreSQL limpo e isolado antes de rodar a suíte de testes. Isso garante que os testes executem de forma confiável em qualquer máquina de desenvolvimento ou servidor de integração contínua (CI), livre de conflitos de estado ou colisões de porta.
