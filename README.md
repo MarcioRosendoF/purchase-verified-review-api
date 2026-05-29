@@ -24,6 +24,7 @@ A REST API that enforces a single core rule: users can only review products they
 * **Database:** PostgreSQL 15
 * **Database Migrations:** Flyway
 * **Authentication:** JWT (JSON Web Tokens via JJWT)
+* **API Documentation:** Swagger UI & OpenAPI 3 (via Springdoc)
 * **Build Tool:** Maven
 * **Infrastructure:** Docker & Docker Compose
 * **Database Testing:** Testcontainers (PostgreSQL Container)
@@ -47,6 +48,14 @@ docker-compose up -d
 #    email: admin@marketplace.com
 #    senha: admin123
 ```
+
+### Interactive API Documentation
+
+Once the application is running, you can access the interactive API documentation at:
+* **Swagger UI:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+* **OpenAPI Spec (JSON):** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+This interface allows you to view all available endpoints, payload schemas, and test requests directly from your browser.
 
 ### API Requests Workflow
 
@@ -125,6 +134,7 @@ Uma API REST que impõe uma única regra de negócio central: usuários só pode
 * **Banco de Dados:** PostgreSQL 15
 * **Migrações do Banco:** Flyway
 * **Autenticação:** JWT (JSON Web Tokens via JJWT)
+* **Documentação da API:** Swagger UI & OpenAPI 3 (via Springdoc)
 * **Ferramenta de Build:** Maven
 * **Infraestrutura:** Docker & Docker Compose
 * **Testes de Banco de Dados:** Testcontainers (PostgreSQL Container)
@@ -148,6 +158,14 @@ docker-compose up -d
 #    email: admin@marketplace.com
 #    senha: admin123
 ```
+
+### Documentação Interativa da API
+
+Assim que a aplicação estiver rodando, você pode acessar a documentação interativa do Swagger UI em:
+* **Swagger UI:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+* **Especificação OpenAPI (JSON):** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+Esta interface permite que você visualize todos os endpoints disponíveis, esquemas de payload e realize requisições de teste diretamente do seu navegador.
 
 ### Fluxo de Requisições da API
 
