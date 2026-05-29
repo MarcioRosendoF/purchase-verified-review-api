@@ -12,6 +12,7 @@
 [![PostgreSQL 15](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)](https://www.docker.com/)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
+[![Java CI with Maven](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml)
 
 ### Overview
 
@@ -28,6 +29,7 @@ A REST API that enforces a single core rule: users can only review products they
 * **Build Tool:** Maven
 * **Infrastructure:** Docker & Docker Compose
 * **Database Testing:** Testcontainers (PostgreSQL Container)
+* **CI/CD:** GitHub Actions (Maven build and Testcontainers validation on push/PR)
 
 ### Getting Started
 
@@ -122,6 +124,7 @@ curl -X POST http://localhost:8080/reviews \
 [![PostgreSQL 15](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)](https://www.docker.com/)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
+[![Java CI with Maven](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml)
 
 ### Visão Geral
 
@@ -138,6 +141,7 @@ Uma API REST que impõe uma única regra de negócio central: usuários só pode
 * **Ferramenta de Build:** Maven
 * **Infraestrutura:** Docker & Docker Compose
 * **Testes de Banco de Dados:** Testcontainers (PostgreSQL Container)
+* **CI/CD:** GitHub Actions (Execução de build Maven e testes com Testcontainers automatizados a cada push/PR)
 
 ### Como Rodar
 
