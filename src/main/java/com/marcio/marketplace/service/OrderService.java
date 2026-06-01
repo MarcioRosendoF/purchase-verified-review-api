@@ -10,6 +10,7 @@ import com.marcio.marketplace.repository.OrderRepository;
 import com.marcio.marketplace.repository.ProductRepository;
 import com.marcio.marketplace.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -41,6 +43,9 @@ public class OrderService {
         order.setTotalPrice(product.getPrice().multiply(BigDecimal.valueOf(request.getQuantity())));
 
         orderRepository.save(order);
+
+        log.info("Pedido criado com sucesso. ID: {}, Comprador: {}, Produto: {}, Quantidade: {}, Preço Total: {}", 
+            order.getId(), buyer.getId(), product.getId(), order.getQuantity(), order.getTotalPrice());
 
         return new OrderResponse(
             order.getId(),

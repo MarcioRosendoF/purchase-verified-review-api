@@ -11,6 +11,7 @@ import com.marcio.marketplace.repository.ProductRepository;
 import com.marcio.marketplace.repository.ReviewRepository;
 import com.marcio.marketplace.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ReviewService {
@@ -36,6 +38,7 @@ public class ReviewService {
             .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado"));
 
         if (!purchaseValidatorService.hasUserPurchasedProduct(authorId, product.getId())) {
+            log.warn("Tentativa de criar review negada. Usuário {} não realizou compra do produto {}.", authorId, product.getId());
             throw new BusinessException("Usuário não realizou compra deste produto");
         }
 
@@ -46,6 +49,9 @@ public class ReviewService {
         review.setComment(request.getComment());
 
         reviewRepository.save(review);
+
+        log.info("Review criada com sucesso. ID: {}, Autor: {}, Produto: {}, Nota: {}", 
+            review.getId(), author.getId(), product.getId(), review.getRating());
 
         return new ReviewResponse(
             review.getId(),
