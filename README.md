@@ -66,13 +66,21 @@ Once running, the database is seeded with a default administrator:
 * **Password:** admin123
 
 #### 4. Running Tests
-To run unit and integration tests using Testcontainers:
+To run all tests (unit and integration tests using Testcontainers):
 ```bash
 ./mvnw test
 ```
-Or with Windows (PowerShell):
+To run only unit tests (which do not require Docker or Testcontainers):
+```bash
+./mvnw test "-Dtest=com.marcio.marketplace.service.*Test"
+```
+Or with Windows (PowerShell) for all tests:
 ```powershell
 .\mvnw.cmd test
+```
+Or with Windows (PowerShell) for only unit tests:
+```powershell
+.\mvnw.cmd test "-Dtest=com.marcio.marketplace.service.*Test"
 ```
 
 ### Interactive API Documentation
@@ -256,13 +264,21 @@ Após a inicialização, o banco é populado automaticamente com um administrado
 * **Senha:** admin123
 
 #### 4. Rodando os Testes
-Para executar testes unitários e de integração utilizando Testcontainers:
+Para executar todos os testes (unitários e de integração utilizando Testcontainers):
 ```bash
 ./mvnw test
 ```
-Ou no Windows (PowerShell):
+Para executar apenas os testes unitários (que não necessitam de Docker ou Testcontainers):
+```bash
+./mvnw test "-Dtest=com.marcio.marketplace.service.*Test"
+```
+Ou no Windows (PowerShell) para todos os testes:
 ```powershell
 .\mvnw.cmd test
+```
+Ou no Windows (PowerShell) apenas para testes unitários:
+```powershell
+.\mvnw.cmd test "-Dtest=com.marcio.marketplace.service.*Test"
 ```
 
 ### Documentação Interativa da API
