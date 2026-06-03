@@ -15,7 +15,7 @@
 [![Testcontainers](https://img.shields.io/badge/Testcontainers-Testing-blue?logo=docker)](https://java.testcontainers.org/)
 [![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)](https://www.docker.com/)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
-[![Java CI with Maven](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml)
+[![Java CI with Maven](https://github.com/MarcioRosendoF/purchase-verified-review-api/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/purchase-verified-review-api/actions/workflows/ci.yml)
 
 ### Overview
 
@@ -205,7 +205,7 @@ src/main/java/com/marcio/marketplace/
 [![Testcontainers](https://img.shields.io/badge/Testcontainers-Testing-blue?logo=docker)](https://java.testcontainers.org/)
 [![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)](https://www.docker.com/)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
-[![CI Java com Maven](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/marketplace/actions/workflows/ci.yml)
+[![CI Java com Maven](https://github.com/MarcioRosendoF/purchase-verified-review-api/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcioRosendoF/purchase-verified-review-api/actions/workflows/ci.yml)
 
 ### Visão Geral
 
