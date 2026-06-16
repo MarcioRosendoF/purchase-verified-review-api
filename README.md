@@ -176,6 +176,22 @@ erDiagram
     }
 ```
 
+#### Class Diagram (UML)
+
+The diagram below represents the logical class structure of the Java source code and their layering relationships, generated automatically:
+
+![Class Diagram](docs/diagrams/diagram.svg)
+
+##### How to generate the Class Diagram
+To generate or update the UML class diagram locally, run the following command using the Maven Wrapper:
+```bash
+./mvnw process-classes -Puml
+```
+For Windows (PowerShell):
+```powershell
+.\mvnw.cmd process-classes -Puml
+```
+
 #### Directory Structure
 ```text
 src/main/java/com/marcio/marketplace/
@@ -372,6 +388,22 @@ erDiagram
         string comment
         instant createdAt
     }
+```
+
+#### Diagrama de Classes (UML)
+
+O diagrama abaixo representa a estrutura lógica das classes em Java e os relacionamentos de dependência entre as camadas, gerado automaticamente:
+
+![Diagrama de Classes](docs/diagrams/diagram.svg)
+
+##### Como gerar o Diagrama de Classes
+Para gerar ou atualizar o diagrama de classes UML localmente, execute o seguinte comando utilizando o Maven Wrapper:
+```bash
+./mvnw process-classes -Puml
+```
+No Windows (PowerShell):
+```powershell
+.\mvnw.cmd process-classes -Puml
 ```
 
 #### Estrutura de Pastas

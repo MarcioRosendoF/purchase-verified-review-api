@@ -167,4 +167,84 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>uml</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>de.elnarion.maven</groupId>
+						<artifactId>plantuml-generator-maven-plugin</artifactId>
+						<version>3.0.1</version>
+						<executions>
+							<execution>
+								<id>generate-puml</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+								<configuration>
+									<scanPackages>
+										<scanPackage>com.marcio.marketplace</scanPackage>
+									</scanPackages>
+									<outputFilename>diagram.puml</outputFilename>
+									<outputDirectory>${project.build.directory}/plantuml</outputDirectory>
+									<hideFields>false</hideFields>
+									<hideMethods>false</hideMethods>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.github.davidmoten</groupId>
+						<artifactId>plantuml-maven-plugin</artifactId>
+						<version>0.2.14</version>
+						<executions>
+							<execution>
+								<id>generate-svg</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<directory>${project.build.directory}/plantuml</directory>
+										<includes>
+											<include>diagram.puml</include>
+										</includes>
+									</sources>
+									<outputDirectory>${project.basedir}/docs/diagrams</outputDirectory>
+									<formats>
+										<format>svg</format>
+									</formats>
+									<configs>
+										<config>skinparam backgroundcolor white</config>
+										<config>skinparam defaultFontName Inter</config>
+										<config>skinparam defaultFontSize 12</config>
+										<config>skinparam defaultFontColor #333333</config>
+										<config>skinparam ClassBackgroundColor white</config>
+										<config>skinparam ClassBorderColor #CCCCCC</config>
+										<config>skinparam ClassFontName Inter</config>
+										<config>skinparam ClassFontSize 12</config>
+										<config>skinparam ClassFontColor #333333</config>
+										<config>skinparam ClassAttributeFontName Inter</config>
+										<config>skinparam ClassAttributeFontSize 10</config>
+										<config>skinparam ClassAttributeFontColor #666666</config>
+										<config>skinparam ArrowColor #999999</config>
+										<config>skinparam ArrowThickness 1</config>
+										<config>skinparam stereotypePosition top</config>
+										<config>skinparam shadowing false</config>
+										<config>hide empty fields</config>
+										<config>hide empty methods</config>
+									</configs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
+
