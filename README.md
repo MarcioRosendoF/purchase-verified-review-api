@@ -21,6 +21,8 @@
 
 A REST API that enforces a single core rule: users can only review products they have actually purchased, preventing unverified or fraudulent feedback.
 
+**Web interface:** the React + TypeScript frontend for this API lives in [purchase-review-frontend](https://github.com/MarcioRosendoF/purchase-review-frontend).
+
 ### Tech Stack
 
 * **Language:** Java 17
@@ -234,6 +236,8 @@ src/main/java/com/marcio/marketplace/
 ### Visão Geral
 
 Uma API REST que impõe uma única regra de negócio central: usuários só podem avaliar produtos que de fato compraram, prevenindo avaliações falsas ou não verificadas.
+
+**Interface web:** o frontend em React + TypeScript desta API está em [purchase-review-frontend](https://github.com/MarcioRosendoF/purchase-review-frontend).
 
 ### Tecnologias Utilizadas
 
